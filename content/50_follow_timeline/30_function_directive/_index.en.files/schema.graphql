@@ -1,0 +1,65 @@
+type Post
+  @model (
+    mutations: {create: "createPost", delete: "deletePost", update: null}
+    timestamps: null
+    subscriptions: { level: public}
+  )
+  @auth(rules: [
+    {allow: owner, ownerField:"owner", provider: userPools, operations:[read, create, delete]}
+    {allow: private, provider: userPools, operations:[read]}
+    {allow: private, provider: iam ,operations:[create]}
+  ])
+  @key(name: "SortByTimestamp", fields:["type", "timestamp"], queryField: "listPostsSortedByTimestamp")
+  @key(name: "BySpecificOwner", fields:["owner", "timestamp"], queryField: "listPostsBySpecificOwner")
+{
+  type: String! # always set to 'post'. used in the SortByTimestamp GSI
+  id: ID
+  content: String!
+  owner: String
+  timestamp: Int!
+}
+
+type FollowRelationship
+	@model(
+    mutations: {create: "createFollowRelationship", delete: "deleteFollowRelationship", update: null}
+    timestamps: null
+  )
+	@auth(rules: [
+		{allow: owner, ownerField:"followerId", provider: userPools, operations:[read, create, delete]},
+		{allow: private, provider: userPools, operations:[read]}
+    {allow: private, provider: iam ,operations:[read]}
+	])
+	@key(fields: ["followeeId", "followerId"])
+{
+	followeeId: ID!
+	followerId: ID!
+	timestamp: Int!
+}
+
+type Timeline 
+	@model(
+    mutations: {create: "createTimeline", delete: null, update: null}
+    timestamps: null
+  )
+	@auth(rules: [
+    {allow: owner, ownerField: "userId", provider: userPools, operations:[read, create]},
+    {allow: private, provider: iam ,operations:[create]},
+	])
+	@key(fields: ["userId", "timestamp"])
+{
+	userId: ID!
+	timestamp: Int!
+	postId: ID!
+	post: Post @connection(fields: ["postId"])
+}
+
+type Mutation
+{
+  createPostAndTimeline(
+		content: String!
+	): Post
+    @function(name: "createPostAndTimeline-${env}")
+    @auth(rules: [
+      {allow: private, provider: userPools},
+    ])
+}

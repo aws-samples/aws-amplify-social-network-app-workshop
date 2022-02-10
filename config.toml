@@ -1,0 +1,56 @@
+# baseURL
+baseURL = ""
+languageCode = "en-EN"
+defaultContentLanguage = "en"
+
+# title
+title = "title"
+theme = "learn"
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+uglyurls = true
+sectionPagesMenu = "main"
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[params]
+  # editURL
+  # editURL = "editURL"
+  # description
+  description = ""
+  # author
+  author = "author"
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "aws"
+  disableSearch = false
+  disableAssetsBusting = true
+  disableLanguageSwitchingButton = false
+  disableShortcutsTitle = true
+  disableInlineCopyToClipBoard = true
+  ordersectionsby = "weight"
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github fa-lg'></i> Souce code (Issues/PRs)"
+identifier = "fb"
+url = "https://github.com/aws-samples/aws-amplify-social-network-app-workshop"
+weight = 0
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+
+[Languages]
+[Languages.ja]
+title = "Amplify SNS Workshop"
+weight = 10
+languageName = "日本語"
+
+[Languages.en]
+title = "Amplify Social Network App Workshop"
+weight = 1
+languageName = "English"
