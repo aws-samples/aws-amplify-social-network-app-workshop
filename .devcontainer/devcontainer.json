@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-            // Settings are based on https://github.com/microsoft/vscode-dev-containers/tree/main/containers/hugo.
+            		// Settings are based on https://github.com/microsoft/vscode-dev-containers/tree/main/containers/hugo.
 			// Update VARIANT to pick hugo variant.
 			// Example variants: hugo, hugo_extended
 			// Rebuild the container if it already exists to update.
@@ -11,12 +11,13 @@
 			// Update VERSION to pick a specific hugo version.
 			// Example versions: latest, 0.73.0, 0,71.1
 			// Rebuild the container if it already exists to update.
-            // v0.87.0 is used in Amplify Social Network Workshop CI/CD pipeline.
+           		 // v0.87.0 is used in Amplify Social Network Workshop CI/CD pipeline.
 			"VERSION": "0.87.0",
 			// Update NODE_VERSION to pick the Node.js version: 12, 14
 			"NODE_VERSION": "14",
 		}
 	},
+	
 	// Mount .gitconfig to push and pull changes from devcontainer
 	"mounts": [
 		"source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
