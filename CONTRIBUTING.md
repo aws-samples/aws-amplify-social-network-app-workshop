@@ -41,8 +41,18 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 ### Local Development
 You need [Hugo](https://gohugo.io/) to develop locally.
-`hugo server`
+
+#### With Visual Studio Code
+1. Clone this repository
+2. Open in Visual Studio Code and run Dev Container
+3. `$ hugo server`
 will start local server at localhost:1313.
+
+#### Without Visual Studio Code
+1. Clone this repository 
+2. Install [Hugo](https://gohugo.io/). Now we use v0.87.0.
+3. `$ hugo server`
+will start local server at localhost:1313. 
 
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
