@@ -7,7 +7,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [Security issue notifications](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
