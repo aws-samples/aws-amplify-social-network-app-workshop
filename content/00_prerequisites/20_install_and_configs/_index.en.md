@@ -150,7 +150,7 @@ If [AWS CLI](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-chap-wel
 {{% /notice%}}
 
 ```bash
-aws sts get-caller-identity —profile amplify-handson
+aws sts get-caller-identity --profile amplify-handson
 {
   "UserId": "XXXXXXXXXXXXXXXX",
   "Account": "YYYYYYYYYYYYYYYYY",
